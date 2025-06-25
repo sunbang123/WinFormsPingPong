@@ -24,20 +24,20 @@ namespace WinFormsApp1
             ball.Top -= ballYspeed;
             ball.Left -= ballXspeed;
 
-            this.Text = "Player Score: " + playerScore + " -- Computer Score: " + computerScore;
+            UpdateScores();
 
-            if(ball.Top < 0 || ball.Bottom > this.ClientSize.Height)
+            if (ball.Top < 0 || ball.Bottom > this.ClientSize.Height)
             {
                 ballYspeed = -ballYspeed;
             }
-            if(ball.Left < -2)
+            if (ball.Left < -2)
             {
                 ball.Left = 300;
                 ballXspeed = -ballXspeed;
                 computerScore++;
             }
 
-            if(ball.Right> this.ClientSize.Width + 2)
+            if (ball.Right > this.ClientSize.Width + 2)
             {
                 ball.Left = 300;
                 ballXspeed = -ballXspeed;
@@ -53,19 +53,19 @@ namespace WinFormsApp1
                 computer.Top = this.ClientSize.Height - computer.Height;
             }
 
-            if (ball.Top < computer.Top + (computer.Height / 2) && ball.Left>300)
+            if (ball.Top < computer.Top + (computer.Height / 2) && ball.Left > 300)
             {
                 computer.Top -= speed;
             }
 
-            if(ball.Top > computer.Top + ( computer.Height / 2) && ball.Left > 300)
+            if (ball.Top > computer.Top + (computer.Height / 2) && ball.Left > 300)
             {
                 computer.Top += speed;
             }
 
             computer_speed_change -= 1;
 
-            if(computer_speed_change < 0)
+            if (computer_speed_change < 0)
             {
                 speed = i[rand.Next(i.Length)];
                 computer_speed_change = 50;
@@ -81,7 +81,7 @@ namespace WinFormsApp1
                 player.Top -= playerSpeed;
             }
 
-            Checkcollision(ball, player, player.Right +5);
+            Checkcollision(ball, player, player.Right + 5);
             Checkcollision(ball, computer, computer.Left - 35);
 
             if (computerScore > 5)
@@ -92,6 +92,11 @@ namespace WinFormsApp1
             {
                 GameOver("Congratulations you won the game!");
             }
+        }
+
+        private void UpdateScores()
+        {
+            this.Text = "Player Score: " + playerScore + " -- Computer Score: " + computerScore;
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -159,6 +164,16 @@ namespace WinFormsApp1
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void computer_Click(object sender, EventArgs e)
         {
 
         }

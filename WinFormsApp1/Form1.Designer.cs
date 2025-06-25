@@ -42,9 +42,9 @@
             // player
             // 
             player.Image = Properties.Resources.player;
-            player.Location = new Point(12, 187);
+            player.Location = new Point(12, 155);
             player.Name = "player";
-            player.Size = new Size(30, 120);
+            player.Size = new Size(25, 68);
             player.SizeMode = PictureBoxSizeMode.StretchImage;
             player.TabIndex = 0;
             player.TabStop = false;
@@ -52,17 +52,18 @@
             // computer
             // 
             computer.Image = Properties.Resources.computer;
-            computer.Location = new Point(1126, 187);
+            computer.Location = new Point(442, 155);
             computer.Name = "computer";
-            computer.Size = new Size(30, 120);
+            computer.Size = new Size(25, 68);
             computer.SizeMode = PictureBoxSizeMode.StretchImage;
             computer.TabIndex = 1;
             computer.TabStop = false;
+            computer.Click += computer_Click;
             // 
             // ball
             // 
             ball.Image = Properties.Resources.ball;
-            ball.Location = new Point(569, 221);
+            ball.Location = new Point(228, 193);
             ball.Name = "ball";
             ball.Size = new Size(30, 30);
             ball.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -80,8 +81,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
-            ClientSize = new Size(1168, 556);
+            BackColor = Color.DarkGreen;
+            ClientSize = new Size(479, 354);
             Controls.Add(ball);
             Controls.Add(computer);
             Controls.Add(player);
@@ -89,6 +90,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Player: 0 --- Computer: 0";
+            Load += Form1_Load;
             KeyDown += KeyIsDown;
             KeyUp += KeyIsUp;
             ((System.ComponentModel.ISupportInitialize)player).EndInit();
